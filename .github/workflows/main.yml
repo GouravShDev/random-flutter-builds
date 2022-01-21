@@ -18,8 +18,11 @@ on:
         description: What to call that artifact
         required: false
         default: 'app.apk'
+      git-repo-name:
+        description: Get project name
+        required: true
       git-repo:
-        description: Get Repo (Optional)
+        description: Get Repo
         required: true
       git-ref:
         description: Git Ref (Optional)
@@ -58,6 +61,7 @@ jobs:
         run: |
               flutter pub get
               flutter build apk
+        working-directory: ${{ github.event.inputs.artifact-path }
       - name: Clean up build artifacts
         run: |
           set -e
