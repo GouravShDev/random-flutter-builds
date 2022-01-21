@@ -18,9 +18,6 @@ on:
         description: What to call that artifact
         required: false
         default: 'app.apk'
-      git-repo-name:
-        description: Get project name
-        required: true
       git-repo:
         description: Get Repo
         required: true
@@ -53,15 +50,14 @@ jobs:
         run: |
           set -e
           ${{ github.event.inputs.setup-command }}
-      - run : ls
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-            channel: 'stable' # or: 'beta', 'dev' or 'master'
+          channel: 'stable'
       - name: Build Apk
         run: |
-              flutter pub get
-              flutter build apk
-#         working-directory: ${{ github.event.inputs.git-repo-name }}
+          flutter pub get
+          flutter build apk
       - name: Clean up build artifacts
         run: |
           set -e
