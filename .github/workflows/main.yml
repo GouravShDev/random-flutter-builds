@@ -61,7 +61,7 @@ jobs:
         run: |
               flutter pub get
               flutter build apk
-        working-directory: ${{ github.event.inputs.git-repo-name }}
+#         working-directory: ${{ github.event.inputs.git-repo-name }}
       - name: Clean up build artifacts
         run: |
           set -e
