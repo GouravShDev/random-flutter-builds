@@ -51,13 +51,11 @@ jobs:
           set -e
           ${{ github.event.inputs.setup-command }}
       - name: Build APK
-        uses: subosito/flutter-build@v1
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
         with:
-          channel: "stable"
-        run: flutter pub get
-        run: flutter clean
-        run: flutter build apk
-
+            channel: 'stable' # or: 'beta', 'dev' or 'master'
+      - run: flutter --version
       - name: Clean up build artifacts
         run: |
           set -e
