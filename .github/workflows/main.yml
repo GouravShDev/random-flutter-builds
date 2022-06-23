@@ -10,6 +10,9 @@ on:
       setup-command:
         description: What to do before building
         required: false
+      flutter-version:
+        description: Specify the version of the flutter sdk
+        required: true
       artifact-path:
         description: What to release
         required: false
@@ -53,6 +56,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version : ${{github.event.inputs.flutter-version}}
           channel: 'stable'
       - name: Build Apk
         run: |
