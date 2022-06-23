@@ -11,4 +11,5 @@ This repo contains github action that can be used to compile flutter app and gen
 5. Now a dialog will appear asking various question regarding the building the app.
 6. Enter any name for the build and enter the flutter sdk version you want to use to compile app ( It can be found in pubspec.yaml file of the flutter project ).
 7. finally enter the repo string from the Step 2 in "Get Repo".
-8. Then Run workflow and You're done. easy right?.
+8. Then Run workflow and wait for few minutes.
+9. Build apk will be shown in the release and You're done. easy right?.
